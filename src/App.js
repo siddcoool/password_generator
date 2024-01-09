@@ -34,7 +34,13 @@ function App() {
           <button className='rounded-lg mx-1 '> Copy</button>
 
         </div>
-        <div className='flex text-sm gap-x-2'></div>
+        <div className='flex text-sm gap-x-2'>
+          <div className='flex items-center gap-x-1'>
+              <input type='range' min={6} max={12} className='cursor-pointer'>
+                <label>Length : {length}</label>
+              </input>
+          </div>
+        </div>
       </div>
     </>
   );
