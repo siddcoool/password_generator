@@ -1,24 +1,41 @@
 import logo from './logo.svg';
-import './App.css';
+import { useCallback, useState } from 'react';
 
 function App() {
+  const [length, setLength] = useState(8)
+  const [number, setNumber] = useState(false)
+  const [char, setChar] = useState(false)
+  const [password, setPassword] = useState(false)
+
+  const passwordGenerator = useCallback(
+    () => {
+      let pass = ""
+      let str = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
+      // if(numberAllowed) str += "0123456789"
+      // if(charAllowed) str += "!@#$%^&*(){}[]"
+      for(let i = 0 ; i < Array.length; i++){
+        let char = Math.floor(Math.random() * str.length + 1)
+        pass = str.charAt(char)
+      }
+      setPassword(pass)
+
+    },
+    [length, number, char, setPassword],
+  )
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+   <>
+   <div className='w-full max-w-md mx-auto shadow-md rounded-lg px-4 my-8 text-blue-500 bg-gray-300'>
+   <h1 className='text-4xl text-center '>
+    Password Generator
+   </h1>
+   <div className='flex shadow rounded-lg overflow-hidden mb-4'>
+    <input type='text' value={password} className='outline-none w-full py-1 px-3 my-4 rounded-lg' placeholder='password' readOnly></input>
+    <button className='rounded-lg mx-1 '> Copy</button>
+
+   </div>
+   </div>
+   </>
   );
 }
 
