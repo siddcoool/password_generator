@@ -13,7 +13,7 @@ function App() {
       let str = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
       // if(numberAllowed) str += "0123456789"
       // if(charAllowed) str += "!@#$%^&*(){}[]"
-      for(let i = 0 ; i < Array.length; i++){
+      for (let i = 0; i < Array.length; i++) {
         let char = Math.floor(Math.random() * str.length + 1)
         pass = str.charAt(char)
       }
@@ -22,20 +22,21 @@ function App() {
     },
     [length, number, char, setPassword],
   )
-  
-  return (
-   <>
-   <div className='w-full max-w-md mx-auto shadow-md rounded-lg px-4 my-8 text-blue-500 bg-gray-300'>
-   <h1 className='text-4xl text-center '>
-    Password Generator
-   </h1>
-   <div className='flex shadow rounded-lg overflow-hidden mb-4'>
-    <input type='text' value={password} className='outline-none w-full py-1 px-3 my-4 rounded-lg' placeholder='password' readOnly></input>
-    <button className='rounded-lg mx-1 '> Copy</button>
 
-   </div>
-   </div>
-   </>
+  return (
+    <>
+      <div className='w-full max-w-md mx-auto shadow-md rounded-lg px-4 my-8 text-blue-500 bg-gray-300'>
+        <h1 className='text-4xl text-center '>
+          Password Generator
+        </h1>
+        <div className='flex shadow rounded-lg overflow-hidden mb-4'>
+          <input type='text' value={password} className='outline-none w-full py-1 px-3 my-4 rounded-lg' placeholder='password' readOnly></input>
+          <button className='rounded-lg mx-1 '> Copy</button>
+
+        </div>
+        <div className='flex text-sm gap-x-2'></div>
+      </div>
+    </>
   );
 }
 
