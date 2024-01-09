@@ -36,9 +36,9 @@ function App() {
         </div>
         <div className='flex text-sm gap-x-2'>
           <div className='flex items-center gap-x-1'>
-              <input type='range' min={6} max={12} className='cursor-pointer'>
-                <label>Length : {length}</label>
-              </input>
+            <input type='range' min={6} max={12} className='cursor-pointer' onChange={(e) => { setLength(e.target.value) }}>
+            </input>
+            <label>Length : {length}</label>
           </div>
         </div>
       </div>
